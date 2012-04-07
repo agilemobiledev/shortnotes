@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_xebia_shortnotes_domain_Note" modelAttribute="note" path="/notes" versionField="none" z="JPSiy6KpKme9SvWQm+Maxw8e0CU=">
+        <field:input field="title" id="c_com_xebia_shortnotes_domain_Note_title" required="true" z="aRkvDH+M6Hn/w3viE24/Mf1EQgA="/>
+        <field:textarea field="content" id="c_com_xebia_shortnotes_domain_Note_content" required="true" z="5TIYsfF7yCtW7N2RwUw8lkgNZSQ="/>
+        <field:select field="notebook" id="c_com_xebia_shortnotes_domain_Note_notebook" itemValue="id" items="${notebooks}" path="/notebooks" required="true" z="y2P+Zcqv0BMCaLH2GqgT+el1yzw="/>
+    </form:update>
+</div>

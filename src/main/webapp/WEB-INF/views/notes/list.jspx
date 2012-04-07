@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_xebia_shortnotes_domain_Note" items="${notes}" z="2QQSxOobyaq3MZ16HF83NMLubqo=">
+        <table:table data="${notes}" id="l_com_xebia_shortnotes_domain_Note" path="/notes" z="2ezxCPqFBJr5ZH1O1t/r9+tgGEw=">
+            <table:column id="c_com_xebia_shortnotes_domain_Note_title" property="title" z="BwW066CVUuRIYZKQQgINUKZZJhg="/>
+            <table:column id="c_com_xebia_shortnotes_domain_Note_content" property="content" z="gDIDYn0qt64aK+fXQg7shPg+UNI="/>
+            <table:column date="true" dateTimePattern="${note_created_date_format}" id="c_com_xebia_shortnotes_domain_Note_created" property="created" z="B1+lsKvhhngLC82JtpHvyStCDM4="/>
+            <table:column id="c_com_xebia_shortnotes_domain_Note_notebook" property="notebook" z="hMC/zEWyUSKteDcrhUDx66638kQ="/>
+        </table:table>
+    </page:list>
+</div>

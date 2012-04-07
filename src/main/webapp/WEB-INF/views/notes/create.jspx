@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_xebia_shortnotes_domain_Note" modelAttribute="note" path="/notes" render="${empty dependencies}" z="nh4gBLRTB5Si03yCHcWJsLtZbf8=">
+        <field:input field="title" id="c_com_xebia_shortnotes_domain_Note_title" required="true" z="aRkvDH+M6Hn/w3viE24/Mf1EQgA="/>
+        <field:textarea field="content" id="c_com_xebia_shortnotes_domain_Note_content" required="true" z="5TIYsfF7yCtW7N2RwUw8lkgNZSQ="/>
+        <field:select field="notebook" id="c_com_xebia_shortnotes_domain_Note_notebook" itemValue="id" items="${notebooks}" path="/notebooks" required="true" z="y2P+Zcqv0BMCaLH2GqgT+el1yzw="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_xebia_shortnotes_domain_Note" render="${not empty dependencies}" z="PB4nEM31LuYI9REcIeTeRoveZGw="/>
+</div>
