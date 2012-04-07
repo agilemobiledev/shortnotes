@@ -67,17 +67,6 @@ privileged aspect NotebookController_Roo_Controller {
         return "notebooks/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String NotebookController.update(@Valid Notebook notebook, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, notebook);
-            return "notebooks/update";
-        }
-        uiModel.asMap().clear();
-        notebookService.updateNotebook(notebook);
-        return "redirect:/notebooks/" + encodeUrlPathSegment(notebook.getId().toString(), httpServletRequest);
-    }
-    
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String NotebookController.updateForm(@PathVariable("id") BigInteger id, Model uiModel) {
         populateEditForm(uiModel, notebookService.findNotebook(id));
