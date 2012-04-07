@@ -21,4 +21,8 @@ public class NoteServiceImpl implements NoteService {
 		Query query = Query.query(Criteria.where("notebook._id").is(new ObjectId(notebook.getId().toString(16))));
 		mongoTemplate.updateMulti(query, update, Note.class);
 	}
+	
+	public void removeNotes(Notebook notebook){
+		mongoTemplate.remove(Query.query(Criteria.where("notebook._id").is(new ObjectId(notebook.getId().toString(16)))), Note.class);
+	}
 }

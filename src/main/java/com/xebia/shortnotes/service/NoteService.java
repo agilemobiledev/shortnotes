@@ -8,4 +8,6 @@ import com.xebia.shortnotes.domain.Notebook;
 public interface NoteService {
 
 	void updateNotesWithNoteBook(Notebook notebook);
+
+	void removeNotes(Notebook notebook);
 }

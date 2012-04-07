@@ -73,16 +73,6 @@ privileged aspect NotebookController_Roo_Controller {
         return "notebooks/update";
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String NotebookController.delete(@PathVariable("id") BigInteger id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Notebook notebook = notebookService.findNotebook(id);
-        notebookService.deleteNotebook(notebook);
-        uiModel.asMap().clear();
-        uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
-        uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/notebooks";
-    }
-    
     void NotebookController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("notebook_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }

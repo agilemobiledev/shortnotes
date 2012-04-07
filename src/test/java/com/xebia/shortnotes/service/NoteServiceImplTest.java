@@ -1,7 +1,9 @@
 package com.xebia.shortnotes.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,7 +48,12 @@ public class NoteServiceImplTest {
 		
 		mongoTemplate.insert(note);
 		
-		
+	}
+	
+	@After
+	public void cleanup(){
+		mongoTemplate.dropCollection(Notebook.class);
+		mongoTemplate.dropCollection(Note.class);
 	}
 	@Test
 	public void testUpdateNotesWithNoteBook() {
@@ -60,6 +67,16 @@ public class NoteServiceImplTest {
 		
 		assertEquals("tom",updateNote.getNotebook().getAuthor());
 		assertEquals("MongoDB handbook", updateNote.getNotebook().getName());
+	}
+	
+	@Test
+	public void shouldDeleteAllNoteForNotebook(){
+		notebookService.deleteNotebook(notebook);
+		
+		noteService.removeNotes(notebook);
+		Note deletedNote = mongoTemplate.findOne(Query.query(Criteria.where("id").is(note.getId())), Note.class);
+		
+		assertNull(deletedNote);
 	}
 
 }
